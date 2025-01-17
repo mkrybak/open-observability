@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Yocale.Observability.Common.Interfaces;
-using Yocale.Observability.Common.Models;
 
 namespace demo_webapi_b.Controllers
 {
@@ -9,7 +7,7 @@ namespace demo_webapi_b.Controllers
     public class DemoBController : ControllerBase
     {
         private readonly ITelemetryService _telemetryService;
-        private readonly IYocaleLogger _logger;
+        private readonly IOpenLogger _logger;
 
         private string cUrl = "https://localhost:7092";
         private string externalUrl = "https://localhost:7069";
@@ -19,7 +17,7 @@ namespace demo_webapi_b.Controllers
             Name = "GetWeather"
         };
 
-        public DemoBController(ITelemetryService telemetryService, IYocaleLogger logger)
+        public DemoBController(ITelemetryService telemetryService, IOpenLogger logger)
         {
             _telemetryService = telemetryService;
             _logger = logger;
